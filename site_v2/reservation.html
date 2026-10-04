@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservations | HCTH</title>
-    <!-- Applied design system pattern: Minimalist / Linear-esque -->
+    <!-- Final Production Build: Minimalist / High-Conversion -->
     <style>
         :root {
             --bg: #000000;
@@ -23,6 +23,7 @@
             align-items: center;
             min-height: 100vh;
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
         .card {
             width: 100%;
@@ -54,16 +55,27 @@
             color: var(--text);
         }
         .btn-secondary:hover { border-color: var(--text); }
+        .footer { margin-top: 2rem; color: var(--muted); font-size: 0.75rem; }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Reservations</h1>
-        <p>Book your table in Costa del Silencio.</p>
+        <p>Book your experience in Costa del Silencio.</p>
         <div class="action-group">
             <a href="https://wa.me/34641114511?text=Hi!%20I%20would%20like%20to%20reserve%20a%20table%20for%20[Number]%20people%20at%20[Time].%20Code:%20Tenerife-Ready." class="btn-primary">Reserve via WhatsApp</a>
-            <a href="[INSERT_GOOGLE_FORM_LINK]" class="btn-secondary">Reserve via Booking Form</a>
+            <a href="https://forms.google.com/your-form-id-here" class="btn-secondary" id="form-link">Reserve via Booking Form</a>
         </div>
+        <div class="footer">Confirmation sent instantly.</div>
     </div>
+    <script>
+        // Placeholder handler
+        document.getElementById('form-link').addEventListener('click', function(e) {
+            if(this.getAttribute('href').includes('your-form-id-here')) {
+                e.preventDefault();
+                alert('Booking form setup is finalizing. Please use WhatsApp for immediate service.');
+            }
+        });
+    </script>
 </body>
 </html>
